@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Weatherify</title>
+    
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+    <link href="https://api.mqcdn.com/sdk/place-search-js/v1.0.0/place-search.css"type="text/css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="stylesheets/search.css" rel="stylesheet" type="text/css">
+    <link href="stylesheets/auroral.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+    
+  </head>
+  <body onload="generateStylesheet()">
+    <div class="wrapper">
+      <div id = "dynamicBackground" class="auroral-northern-dusk"></div>
+      <div class="auroral-stars"></div>
+    </div>
+    
+    <div class ="centered">
+
+        <!-- TO-DO: need to implement this using javascript fetch so the URL doesnt auto re-direct-->
+        <form id="weatherForm" action="/weather" method="post">
+          <div id="searchBar"> <input class="form-control" id="inputAddress" name="location" type="text" placeholder="Enter an Address" required> </div>
+          <div id="searchButton"> <button type="submit" class="btn btn-secondary"><i class="fa fa-search"></i></button></div>
+        </form>
+
+          <!-- <div id="searchBar"> <input class="form-control" id="inputAddress" name="location" type="text" placeholder="Enter an Address" required> </div>
+          <div id="searchButton"> <button onclick="fetchWeather()" class="btn btn-secondary"><i class="fa fa-search"></i></button></div> -->
+      
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/places.js@1.16.4"></script>
+    <script src="javascripts/search.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+  </body>
+</html>
