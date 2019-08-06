@@ -64,6 +64,8 @@ function httpGet(theUrl)
     return xmlHttp.responseText;
 }
 
+//TO-DO: create an emergency render component
+
 class SearchedLocation extends React.Component {
   render() {
     return(
