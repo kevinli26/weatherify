@@ -31,14 +31,15 @@ app.post('/weather', (req,res) => {
 	let longitude = "";
 	request(geourl, function (err, response, body) {
 		if(err){
-	    	console.log('error:' + err);
-	    	res.render('weather.jsx', { weather: "invalid address"});
+	    	console.log('error:', err);
+			res.render('error.jsx', { errormessage: "Unable to get the geocoding data."});
 	    } else{
 			let resultLocation = JSON.parse(body)
 			
 	    	//no results hence invalid address
 	    	if (resultLocation.total_results == 0) {
-	    		res.render('weather.jsx', { weather: "invalid address"});
+	    		console.log('error:', err);
+				res.render('error.jsx', { errormessage: "invalid address"});
 	    	}
 
 	    	else {
@@ -53,7 +54,8 @@ app.post('/weather', (req,res) => {
 				request(url, function (err, response, body) {
 					if(err){
 				    	console.log('error:', error);
-	    				res.render('weather.jsx', { weather: "invalid address"});
+						res.render('error.jsx', { errormessage: "Unable to get the weather data."});
+						
 				    } else{
 						console.log("serving weather info");
 						let weather = JSON.parse(body); //parse to json so we can handle it
@@ -66,7 +68,9 @@ app.post('/weather', (req,res) => {
 						//Right now
 						let current = weather.currently;
 						let currentTime = moment.unix(current.time).format("LLL");//current time in context of the timezone of the user
-							
+						let timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+						let timeZoneLocation = weather.timezone; //timezone of the searched location (disregarding the users location)	
+
 						//today
 						let today = weather.hourly.data;
 						let todaySummary = weather.hourly.summary;
@@ -76,11 +80,11 @@ app.post('/weather', (req,res) => {
 						const data = {
 							location: decodeURIComponent(location), //user entered location
 							time: currentTime,
-
 							rightNow: current,
 							daily: today, //data for daily weather (data as parsed due to requirements)
 							dailySummary: todaySummary,
-							
+							timeZone: timeZone,
+							timeZoneLocation: timeZoneLocation,
 						}
 
 						res.render('weather.jsx', data );
