@@ -7,7 +7,6 @@ import {
     XAxis,
     YAxis,
     VerticalBarSeries,
-    LabelSeries,
 } from 'react-vis';
 
 
@@ -28,12 +27,12 @@ class TodayWeather extends React.Component {
         <Card style={sections}>
         <Card.Body>
           <Card.Title style={sectionTitle}><h2><b>Next 24 hours</b></h2></Card.Title>
-          <Card.Text>{this.props.dailySummary}</Card.Text>
+          <Card.Text>{this.props.daySummary}</Card.Text>
           <div id="parent" className="centered">
           <XYPlot color= "#ffc107" xType="ordinal" width={1340} height={400}>
   
             <XAxis/>
-            <YAxis title="&#8451;" titelAngle={-90}/>
+            <YAxis title="&#8451;"/>
             <VerticalBarSeries
              data = {this.props.data}
             />

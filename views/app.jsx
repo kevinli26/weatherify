@@ -36,8 +36,8 @@ class App extends React.Component {
         <Title/>
         <SearchedLocation time={this.props.time} location={this.props.location} timeZone={this.props.timeZone} timeZoneLocation={this.props.timeZoneLocation}/>
         <CurrentWeather data={this.props.rightNow}/>
-        <TodayWeather data={this.props.daily} dailySummary={this.props.dailySummary}/>
-        <WeekWeather/>
+        <TodayWeather data={this.props.day} daySummary={this.props.daySummary}/>
+        <WeekWeather data={this.props.week} weekSummary={this.props.weekSummary}/>
         <Footer/>
         </body>
         

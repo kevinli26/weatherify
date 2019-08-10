@@ -6,8 +6,7 @@ import {
     XYPlot,
     XAxis,
     YAxis,
-    VerticalBarSeries,
-    LabelSeries,
+    LineMarkSeries,
 } from 'react-vis';
 
 
@@ -23,19 +22,23 @@ const sectionTitle = {
 
 //define and export the component
 class WeekWeather extends React.Component {
+ 
     render() {
       return(
         <Card style={sections}>
         <Card.Body>
-          <Card.Title style={sectionTitle}><h2><b>This Week</b></h2></Card.Title>
-          <Card.Text>{this.props.dailySummary}</Card.Text>
+          <Card.Title style={sectionTitle}><h2><b>This and next week</b></h2></Card.Title>
+          <Card.Text>{this.props.weekSummary}</Card.Text>
           <div id="parent" className="centered">
           <XYPlot color= "#ffc107" xType="ordinal" width={1250} height={400}>
   
             <XAxis/>
-            <YAxis />
-            <VerticalBarSeries
-             data = {this.props.data}
+            <YAxis title="&#8451;"/>
+            <LineMarkSeries
+              lineStyle={{stroke: '#007bff'}}
+              markStyle={{stroke: '#ffc107'}}
+              curve={'curveMonotoneX'}
+              data = {this.props.data}
             />
          
           </XYPlot>

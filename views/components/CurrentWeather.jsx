@@ -73,7 +73,7 @@ class CurrentWeather extends React.Component {
         <Card style={sections}>
         <Card.Body>
           <Card.Title style={sectionTitle}><h2><b>Right now</b></h2></Card.Title>
-          <Card.Text>{this.props.data.summary} for the hour</Card.Text>
+          <Card.Text>{this.props.data.summary} for the hour.</Card.Text>
   
           <div className="centered">
           <Card style={{ width: '100wh' }}>

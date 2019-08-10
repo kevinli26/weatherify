@@ -44,7 +44,7 @@ app.post('/weather', (req,res) => {
 		    	longitude = bounds.lng;
 		    	//call darksky api to get weather data based on the long and lat
 				let apiKey = '987b2fb820686e246e617bc308c3d206';
-				let url = 'https://api.darksky.net/forecast/'+apiKey+'/'+latitude+','+longitude;
+				let url = 'https://api.darksky.net/forecast/'+apiKey+'/'+latitude+','+longitude+'?exclude=minutely,flags';
 
 				request(url, function (err, response, body) {
 					if(err){
@@ -55,11 +55,10 @@ app.post('/weather', (req,res) => {
 						console.log("serving weather info");
 						let weather = JSON.parse(body); //parse to json so we can handle it
 						
-						// print everything for debugging and info purposes
+						// // print everything for debugging and info purposes
 						// var parsed = JSON.stringify(weather, null, 2);
 						// console.log(parsed);
 						
-
 						//Right now
 						let current = weather.currently;
 						let currentTime = moment.unix(current.time).format("LLL");//current time in context of the timezone of the user
@@ -67,17 +66,28 @@ app.post('/weather', (req,res) => {
 						let timeZoneLocation = weather.timezone; //timezone of the searched location (disregarding the users location)	
 
 						//today
-						let today = weather.hourly.data;
-						let todaySummary = weather.hourly.summary;
-						today = fnc.parseToday(today,currentTime);
-						//console.log(JSON.stringify(today, null, 2));
+						let day = weather.hourly.data;
+						let daySummary = weather.hourly.summary;
+						day = fnc.parseToday(day);
 						
+						//Week
+						let week = weather.daily.data;
+						let weekSummary = weather.daily.summary;
+						weekSummary = fnc.parseWeekSummaryMessage(weekSummary)
+						week = fnc.parseWeek(week);
+												
 						const data = {
+							//right now
 							location: decodeURIComponent(location), //user entered location
 							time: currentTime,
 							rightNow: current,
-							daily: today, //data for daily weather (data as parsed due to requirements)
-							dailySummary: todaySummary,
+							//for the day
+							day: day, //data for daily weather (data as parsed due to requirements)
+							daySummary: daySummary,
+							//for the week
+							weekSummary: weekSummary,
+							week: week,
+							//general user search information
 							timeZone: timeZone,
 							timeZoneLocation: timeZoneLocation,
 						}
