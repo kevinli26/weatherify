@@ -15,11 +15,6 @@ app.engine('jsx', require('express-react-views').createEngine());
 app.use(express.static(__dirname + '/public'));
 
 
-app.get('/ping', (req, res) => {
-	console.log("pong");
-	res.end();
-})
-
 //TO-DO: modularize the different functions, organize it better, put into different routes then import these routes, use as many helper functions as possible, still want to stick with server-side rendering
 app.post('/weather', (req,res) => {
 	//opecagedata api to fetch long and lat from address via geocoding
@@ -60,9 +55,9 @@ app.post('/weather', (req,res) => {
 						console.log("serving weather info");
 						let weather = JSON.parse(body); //parse to json so we can handle it
 						
-						//print everything for debugging and info purposes
-						var parsed = JSON.stringify(weather, null, 2);
-						console.log(parsed);
+						// print everything for debugging and info purposes
+						// var parsed = JSON.stringify(weather, null, 2);
+						// console.log(parsed);
 						
 
 						//Right now
@@ -87,7 +82,7 @@ app.post('/weather', (req,res) => {
 							timeZoneLocation: timeZoneLocation,
 						}
 
-						res.render('weather.jsx', data );
+						res.render('App.jsx', data );
 				  	}
 				});
 	    	}
