@@ -27,7 +27,9 @@
     "react-engine": "^4.5.1",
     "react-router": "^5.0.1",
     "react-vis": "^1.11.7",
+    "recharts": "^1.7.0",
     "request": "^2.88.0",
+    "victory": "^32.3.6",
     "weather-icons-react": "^1.2.0"
   }
 }

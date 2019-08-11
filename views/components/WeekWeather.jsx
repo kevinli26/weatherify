@@ -7,6 +7,7 @@ import {
     XAxis,
     YAxis,
     LineMarkSeries,
+    makeVisFlexible
 } from 'react-vis';
 
 
@@ -30,7 +31,7 @@ class WeekWeather extends React.Component {
           <Card.Title style={sectionTitle}><h2><b>This and next week</b></h2></Card.Title>
           <Card.Text>{this.props.weekSummary}</Card.Text>
           <div id="parent" className="centered">
-          <XYPlot color= "#ffc107" xType="ordinal" width={1250} height={400}>
+          <XYPlot color= "#ffc107" xType="ordinal" width={1340} height={400}>
   
             <XAxis/>
             <YAxis title="&#8451;"/>
