@@ -41,48 +41,41 @@ class TodayWeather extends React.Component {
           <Card.Title style={sectionTitle}><h2><b>Next 24 hours</b></h2></Card.Title>
           <Card.Text style={sectionSummary}>{this.props.daySummary}</Card.Text>
           <div id="parent" className="centered">
+            <VictoryChart
+              padding={{
+                top:15,
+                bottom:15,
+                left:5,
+                right:5,
+              }}
+              domainPadding={10}
+              height={150}
+            >
+              <VictoryBar
+                  //supply data
+                  data={this.props.data}
+                  //supplying and styling the labels
+                  labels={(d) => `${(d.y).toFixed(0)} ℃`}
 
-          
-          <VictoryChart
-            padding={{
-              top:15,
-              bottom:20,
-              left:5,
-              right:5,
-            }}
-            domainPadding={10}
-            height={150}
-          >
-            <VictoryBar
-                //supply data
-                data={this.props.data}
-                //supplying and styling the labels
-                labels={(d) => `${(d.y).toFixed(0)} ℃`}
-
-                style={{ 
-                  data: { fill: "#ffc107" },
-                  labels: {
-                    fontSize: 4
-                  }
-                }}
-                //visual sizing of chart
-                barRatio={0.8}
-                theme={VictoryTheme.material}
-              />
-              <VictoryAxis
-                style={{
-                  axis: {stroke: "#756f6a"},
-                  // axisLabel: {fontSize: 20, padding: 30},
-                  ticks: {stroke: "grey", size: 3},
-                  tickLabels: {fontSize: 4, padding:6}
-                }}
-              />
-
-          </VictoryChart>
-           
-      
-
-    
+                  style={{ 
+                    data: { fill: "#ffc107" },
+                    labels: {
+                      fontSize: 5
+                    }
+                  }}
+                  //visual sizing of chart
+                  barRatio={0.8}
+                  theme={VictoryTheme.material}
+                />
+                <VictoryAxis
+                  style={{
+                    axis: {stroke: "#756f6a"},
+                    // axisLabel: {fontSize: 20, padding: 30},
+                    ticks: {stroke: "grey", size: 3},
+                    tickLabels: {fontSize: 4, padding:6}
+                  }}
+                />
+            </VictoryChart>
 
           {/* <XYPlot color= "#ffc107" xType="ordinal" width={1340} height={400}>
   
