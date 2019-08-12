@@ -14,6 +14,10 @@ app.set('view engine', 'ejs');
 app.engine('jsx', require('express-react-views').createEngine());
 app.use(express.static(__dirname + '/public'));
 
+app.get('/ping', (req,res) => {
+	console.log('pong');
+	res.end();
+})
 
 //TO-DO: modularize the different functions, organize it better, put into different routes then import these routes, use as many helper functions as possible, still want to stick with server-side rendering
 app.post('/weather', (req,res) => {

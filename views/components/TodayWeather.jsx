@@ -1,20 +1,18 @@
 //include used components
 var React = require('react');
 var Card = require('react-bootstrap/Card');
-var ListGroup = require('react-bootstrap/ListGroup');
-import {
-    XYPlot,
-    XAxis,
-    YAxis,
-    VerticalBarSeries,
-} from 'react-vis';
+// import {
+//     XYPlot,
+//     XAxis,
+//     YAxis,
+//     VerticalBarSeries,
+// } from 'react-vis';
 
 import {
   VictoryChart,
   VictoryBar,
   VictoryTheme,
-  VictoryLegend,
-  VictoryLine,
+
   VictoryAxis
 } from 'victory'
 
