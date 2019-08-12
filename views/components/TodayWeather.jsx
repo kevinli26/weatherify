@@ -45,8 +45,8 @@ class TodayWeather extends React.Component {
           
           <VictoryChart
             padding={{
-              top:8,
-              bottom:15,
+              top:15,
+              bottom:20,
               left:5,
               right:5,
             }}
@@ -62,7 +62,7 @@ class TodayWeather extends React.Component {
                 style={{ 
                   data: { fill: "#ffc107" },
                   labels: {
-                    fontSize: "4px"
+                    fontSize: 4
                   }
                 }}
                 //visual sizing of chart
