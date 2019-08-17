@@ -15,7 +15,7 @@ class SearchedLocation extends React.Component {
       return(
         <Card style={sections}>
         <Card.Body>
-          <Card.Title><h2><b>{this.props.location} {this.props.timeZoneLocation.replace("_"," ")}</b></h2>{this.props.time} in {this.props.timeZone}</Card.Title>
+          <Card.Title><h2><b>{this.props.location} (Location time zone: {this.props.timeZoneLocation.replace("_"," ")})</b></h2>{this.props.time}  ( Your time zone: {this.props.timeZone})</Card.Title>
           <hr></hr>
           {/* used to hydrate the client side. implemented without clientside mounting as isomorphic web apps have many drawbacks */}
           <div dangerouslySetInnerHTML={{__html:
