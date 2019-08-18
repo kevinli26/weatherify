@@ -24,3 +24,4 @@ app.use('/', searchLocation);
 
 //launch app on the designated port
 app.listen(port, () => { console.log('Listening on port: ' + port) });
+

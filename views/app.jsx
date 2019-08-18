@@ -15,7 +15,6 @@ const background = {
 
 //TO-DO: create an emergency alert component
 
-
 //define and export the APP component, this is the heart of this application
 class App extends React.Component {
   render() {
