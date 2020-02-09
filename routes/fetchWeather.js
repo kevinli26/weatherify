@@ -31,7 +31,7 @@ router.post('/', (req,res) => {
 			latitude = bounds.lat;
 			longitude = bounds.lng;
 			//call darksky api to get weather data based on the long and lat
-			let apiKey = '987b2fb820686e246e617bc308c3d206';
+			let apiKey = '';
 			let weatherurl = 'https://api.darksky.net/forecast/'+apiKey+'/'+latitude+','+longitude+'?exclude=minutely,flags';
 
 			axios({
