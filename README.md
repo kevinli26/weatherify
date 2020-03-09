@@ -12,9 +12,12 @@ Server
  
 # To-do
   - [X] Implement dynamic resizing for client mountable views with Formidable Victory.
-  - [ ] Integrate websockets with socket.io.
   - [X] Allow client to search a new location with client-side hydration.
-  - [ ] Replace .ejs views with react views.
+  - [X] Dockerize
+  - [ ] Deploy
+  - [ ] Implement user creation and authentication with mongo
+  - [ ] Save user searched history of weather locations
+
 
 
   
