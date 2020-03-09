@@ -31,7 +31,7 @@ router.post('/', (req,res) => {
 			latitude = bounds.lat;
 			longitude = bounds.lng;
 			//call darksky api to get weather data based on the long and lat
-			let apiKey = '';
+			let apiKey = '987b2fb820686e246e617bc308c3d206';
 			let weatherurl = 'https://api.darksky.net/forecast/'+apiKey+'/'+latitude+','+longitude+'?exclude=minutely,flags';
 
 			axios({
@@ -79,7 +79,7 @@ router.post('/', (req,res) => {
 					timeZoneLocation: timeZoneLocation,
 				}
 
-				res.render('App.jsx', data );
+				res.render('app.jsx', data );
 			}).catch( err => {
 				console.log('Unable to get weather data, error:', err);
 				res.render('error.jsx', { errormessage: "Unable to get the weather data."});

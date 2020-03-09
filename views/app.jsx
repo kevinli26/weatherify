@@ -2,7 +2,7 @@
 //express-react-views only supports static markup, meaning that what the user sees is final, nothing will change after, there is no javascript required for this
 var React = require('react');
 var SearchedLocation = require('./components/SearchedLocation.jsx');
-var Title = require('./components/title.jsx');
+var Title = require('./components/Title.jsx');
 var CurrentWeather = require('./components/CurrentWeather.jsx');
 var WeekWeather = require('./components/WeekWeather.jsx');
 var TodayWeather = require('./components/TodayWeather.jsx')
