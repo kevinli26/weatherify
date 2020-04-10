@@ -2,7 +2,7 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-const port = 4000;
+const port = 8080;
 
 //import modularized routes
 var fetchWeather = require('./routes/fetchWeather.js');
