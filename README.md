@@ -14,7 +14,7 @@ Server
   - [X] Implement dynamic resizing for client mountable views with Formidable Victory.
   - [X] Allow client to search a new location with client-side hydration.
   - [X] Dockerize
-  - [ ] Deploy
+  - [X] Deploy
   - [ ] Implement user creation and authentication with mongo
   - [ ] Save user searched history of weather locations
 
