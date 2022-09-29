@@ -24,7 +24,7 @@
     "react-dom": "^16.9.0",
     "react-engine": "^4.5.1",
     "react-router": "^5.0.1",
-    "victory": "^32.3.6",
+    "victory": "^36.6.8",
     "weather-icons-react": "^1.2.0",
     "minimist": "^1.2.3"
   }
